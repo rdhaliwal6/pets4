@@ -4,12 +4,10 @@ class Pet
 {
     private $_name;
     private $_color;
-    private $_type;
 
-    function __construct($type="unknown",$name="unknown",$color="?"){
+    function __construct($name="unknown",$color="?"){
         $this->_name = $name;
         $this->_color = $color;
-        $this->_type = $type;
     }
 
     function eat()
@@ -32,14 +30,6 @@ class Pet
 
     function setName($name){
         $this->_name = $name;
-    }
-
-    function getType(){
-        return $this->_type;
-    }
-
-    function setType($type){
-        $this->_type = $type;
     }
 
     function talk()
