@@ -58,6 +58,9 @@ $f3->route("GET|POST /order", function($f3) {
                 case 'dog':
                     $animal = new Dog($animal);
                     break;
+                case 'bird':
+                    $animal = new Bird($animal);
+                    break;
                 default:
                     $animal = new Pet($animal);
             }
