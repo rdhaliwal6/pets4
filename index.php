@@ -75,13 +75,17 @@ $f3->route("GET|POST /order", function($f3) {
 });
 
 $f3->route("GET|POST /order2", function($f3) {
-    if(isset($_POST['color'])) {
-        $color = $_POST['color'];
-        if(validColor($color)) {
-            $_SESSION['animal']->setColor($color);
-            $f3->reroute('/results');
-        } else {
-            $f3->set("errors['color']", "Please select a color.");
+    if(isset($_POST['name']) && $_POST['name'] != "") {
+        $name = $_POST['name'];
+        $_SESSION['animal']->setName($name);
+        if (isset($_POST['color'])) {
+            $color = $_POST['color'];
+            if (validColor($color)) {
+                $_SESSION['animal']->setColor($color);
+                $f3->reroute('/results');
+            } else {
+                $f3->set("errors['color']", "Please select a color.");
+            }
         }
     }
     $views = new Template();
