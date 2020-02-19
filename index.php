@@ -75,7 +75,7 @@ $f3->route("GET|POST /order2", function($f3) {
     if(isset($_POST['color'])) {
         $color = $_POST['color'];
         if(validColor($color)) {
-            $_SESSION['color'] = $color;
+            $_SESSION['animal']->setColor($color);
             $f3->reroute('/results');
         } else {
             $f3->set("errors['color']", "Please select a color.");
