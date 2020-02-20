@@ -13,6 +13,10 @@ session_start();
 
 //Instantiate F3
 $f3 = Base::Instance();
+
+//Instantiate controller object
+$controller = new Controller($f3);
+
 $f3->set('colors', array('pink', 'green', 'blue'));
 $f3->set('DEBUG', 3);
 
@@ -70,8 +74,7 @@ $f3->route("GET|POST /order", function($f3) {
             $f3->set("errors['animal']", "Please enter an animal.");
         }
     }
-    $views = new Template();
-    echo $views->render('views/form1.html');
+    $GLOBALS['controller']->order();
 });
 
 $f3->route("GET|POST /order2", function($f3) {
@@ -88,14 +91,11 @@ $f3->route("GET|POST /order2", function($f3) {
             }
         }
     }
-    $views = new Template();
-    echo $views->render('views/form2.html');
+    $GLOBALS['controller']->order2();
 });
 
 $f3->route("GET|POST /results", function() {
-    //var_dump($_POST);
-    $views = new Template();
-    echo $views->render('views/results.html');
+    $GLOBALS['controller']->result();
 });
 
 //Run f3
