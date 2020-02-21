@@ -1,13 +1,14 @@
 <?php
 class Dog extends Pet
 {
-    function __construct(){
-        $this->setName('dog');
+    function __construct()
+    {
+        $this->setType("dog");
     }
 
     function talk()
     {
-        echo "<p>".$this->getName()." is barking</p>";
+        echo $this->getName()." is barking";
     }
 
     function fetch()

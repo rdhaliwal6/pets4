@@ -16,12 +16,11 @@
         <option value="pink">Pink</option>-->
 
 <!--        <option> Select a color </option>-->
-        <repeat group="{{ @colors }}" value="{{ @colorOption }}">
-
-            <check if="@colorOption==@SESSION.animal->getColor()"><option value="{{ @colorOption }}" selected><option>{{ @colorOption }}</option>
+        <repeat group="{{ @colors }}" value="{{ @colorOption }}"
+            <check if="@colorOption==@SESSION.animal->getColor()">
+                selected
             </check>
-            <option value="<option>{{ @colorOption }}"><option>{{ @colorOption }}</option></check>
-            </option>
+            ><option>{{ @colorOption }}</option>
         </repeat>
     </select>
     <button type="submit">Next>></button>

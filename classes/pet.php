@@ -4,10 +4,10 @@ class Pet
 {
     private $_name;
     private $_color;
+    private $_type;
 
     function __construct($name="unknown",$color="?"){
-        $this->_name = $name;
-        $this->_color = $color;
+        $this->setType("pet");
     }
 
     function eat()
@@ -23,6 +23,14 @@ class Pet
         $this->_color = $color;
     }
 
+    function getType() {
+        return $this->_type;
+    }
+
+    function setType($type)
+    {
+        $this->_type = $type;
+    }
 
     function getName(){
         return $this->_name;

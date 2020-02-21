@@ -2,8 +2,13 @@
 
 class Bird extends Pet
 {
+    function __construct()
+    {
+        $this->setType("bird");
+    }
+
     function talk()
     {
-        echo "<p>".$this->getName()." is chirping</p>";
+        echo $this->getName()." is chirping";
     }
 }
